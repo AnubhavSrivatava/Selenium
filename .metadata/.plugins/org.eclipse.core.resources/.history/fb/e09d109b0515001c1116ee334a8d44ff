@@ -1,0 +1,23 @@
+package section8udemy.section8;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Disabledattribute {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","/Users/anubhavsrivastava/Documents/Anubhav/Selenium/drivers/chromedriver");
+		WebDriver driver =new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise");
+		
+		System.out.println(driver.findElement(By.id("ctl00_mainContent_view_date2")).isEnabled());
+		driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+		System.out.println(driver.findElement(By.id("ctl00_mainContent_view_date2")).isEnabled());
+		
+		Thread.sleep(3000);
+		driver.close();
+
+	}
+	
+}

@@ -1,0 +1,37 @@
+package Section9;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class AddToCartBySelf {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver",
+				"/Users/anubhavsrivastava/Documents/Anubhav/Selenium/drivers/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+		String[] Itemsneeded = {"Brocolli","Cauliflower","Cucumber"};
+		List<WebElement> product = driver.findElements(By.cssSelector(".product-name"));
+		int i,j=0;
+		for(i=0;i<product.size();i++) {
+			System.out.println(product.get(i).getText());
+			String[] name =product.get(i).getText().split("-");
+			String formattedname =name[0].trim();
+			System.out.println(formattedname);
+			List <String> itemnamelist=Arrays.asList(Itemsneeded);
+			if (itemnamelist.contains(formattedname)) {
+				driver.findElement(By.cssSelector(".product-action")).click();		
+				j++;
+				if (j == Itemsneeded.length)
+					break;
+				}
+		} 
+
+	}
+
+}

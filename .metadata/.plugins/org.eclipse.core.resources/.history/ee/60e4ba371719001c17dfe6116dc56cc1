@@ -1,0 +1,28 @@
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.Method;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+public class TC001_GET_Request {
+@Test
+	void getWeatherDetails() {
+	
+//specify base URI
+RestAssured.baseURI=("http://restapi.demoqa.com/utilities/weather/city");
+
+//Request Object
+RequestSpecification httpRequest =RestAssured.given();
+
+//Response Object
+Response response=httpRequest.request(Method.GET,"/Hyderabad");
+
+//print response
+String responseBody=response.getBody().asString();
+System.out.println("Response body of given request =" + responseBody);
+
+
+
+	}
+}

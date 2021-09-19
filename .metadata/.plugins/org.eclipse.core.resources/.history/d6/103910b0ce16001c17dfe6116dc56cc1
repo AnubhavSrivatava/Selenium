@@ -1,0 +1,12 @@
+package test;
+
+import org.testng.annotations.Test;
+
+public class days {
+
+	@Test 
+	public void bye()
+	{
+		System.out.println("good");
+	}
+}
